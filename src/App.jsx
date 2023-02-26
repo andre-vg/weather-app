@@ -6,6 +6,7 @@ import { CircularProgress, IconButton, styled, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import { DateTime } from "luxon";
+import { motion as m } from "framer-motion";
 
 function App() {
   const API_key = "f93aacfc4f417b961ee630e9fea7b9ca";
@@ -102,8 +103,11 @@ function App() {
   // }, []);
 
   return (
-    <div className="Poppins text-white bg-[url(https://img.freepik.com/premium-photo/minimalist-black-background-with-square-geometric-shapes_103577-5240.jpg?w=2000)] bg-cover absolute flex justify-center items-center w-full h-full">
-      <div
+    <div className="Poppins text-white bg-neutral-900 bg-cover absolute flex justify-center items-center w-full h-full">
+      <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
         className={`h-[60%] w-[30%] rounded-3xl shadow-lg transition-colors duration-500 backdrop-blur-sm z-10`}
         style={{
           background: cor,
@@ -183,16 +187,27 @@ function App() {
           <Info info={resposta} hora={hora.toFormat("HH:mm")} />
         ) : null}
         {loading && (
-          <div className="flex justify-center items-center h-full">
+          <m.div
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+            }}
+            className="flex justify-center items-center h-full"
+          >
             <CircularProgress
-              className="mt-10"
               sx={{
                 color: "white",
               }}
             />
-          </div>
+          </m.div>
         )}
-      </div>
+      </m.div>
     </div>
   );
 }

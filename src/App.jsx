@@ -14,7 +14,7 @@ function App() {
   const [resposta, setResposta] = useState();
   const [loading, setLoading] = useState(false);
   const [hora, setHora] = useState();
-  const [cor, setCor] = useState("rgba(0, 0, 0, 0.45)");
+  const [cor, setCor] = useState("rgb(38, 38, 38)");
 
   const send = (event) => {
     event.preventDefault();
@@ -68,7 +68,7 @@ function App() {
     if (hora >= 6 && hora < 12) {
       setCor("#D0863866");
     } else if (hora >= 12 && hora < 18) {
-      setCor("#308CB666");
+      setCor("#308CB690");
     } else if (hora >= 18 && hora < 24) {
       setCor("#0A246366");
     } else if (hora >= 0 && hora < 6) {
@@ -103,12 +103,11 @@ function App() {
   // }, []);
 
   return (
-    <div className="Poppins text-white bg-neutral-900 bg-cover absolute flex justify-center items-center w-full h-full">
       <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className={`h-[60%] w-[30%] rounded-3xl shadow-lg transition-colors duration-500 backdrop-blur-sm z-10`}
+        className={`absolute h-full transition-colors duration-500 backdrop-blur-sm z-10`}
         style={{
           background: cor,
         }}
@@ -208,7 +207,6 @@ function App() {
           </m.div>
         )}
       </m.div>
-    </div>
   );
 }
 

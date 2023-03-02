@@ -41,7 +41,6 @@ function App() {
       )
       .then((res) => res.data)
       .then((data) => {
-        console.log(data);
         setTimeout(() => {
           setLoading(false);
           setResposta(data);
@@ -76,137 +75,111 @@ function App() {
     }
   };
 
-  const CssTextField = styled(TextField)({
-    "& label.Mui-focused": {
-      color: "green",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "green",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "red",
-      },
-      "&:hover fieldset": {
-        borderColor: "yellow",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "green",
-      },
-    },
-  });
-
-  // useEffect(() => {
-  //   axios.get(
-  //     `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${API_key}`
-  //   );
-  // }, []);
-
   return (
-      <m.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className={`absolute h-full transition-colors duration-500 backdrop-blur-sm z-10`}
-        style={{
-          background: cor,
-        }}
-      >
-        <form onSubmit={send} className="flex px-6 py-4 h-[15%]">
-          <TextField
-            className="border-b-2 border-slate-900 focus:outline-none w-[90%]"
-            label="Digite uma cidade"
-            variant="standard"
-            color="error"
-            sx={{
-              "& label.Mui-focused": {
-                color: "white",
-              },
-              "& .MuiInput-underline:before": {
-                borderBottomColor: "transparent",
-              },
-              "& .MuiInput-underline:after": {
-                borderBottomColor: "white",
-              },
-              //hover
-              "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
-                borderBottomColor: "black",
-              },
-              "& .MuiFormLabel-root": {
-                color: "white",
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: "1rem",
-              },
-              "& .MuiInputBase-input": {
-                color: "white",
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: "1.25rem",
-              },
-            }}
-            autoComplete="off"
-            value={city}
-            onChange={(e) => {
-              setCity(e.target.value);
-            }}
-            InputProps={{
-              endAdornment: city != "" && (
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={() => setCity("")}
-                  sx={{
-                    "& .MuiSvgIcon-root": {
-                      color: "white",
-                    },
-                  }}
-                >
-                  <ClearIcon color="white" />
-                </IconButton>
-              ),
-            }}
-          />
-          {/* <FaSearchLocation size={30} className="cursor-pointer"> */}
-          <div className="w-[10%] flex justify-center">
-            <div className="mt-3">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className={`absolute h-full transition-colors duration-500 backdrop-blur-sm z-10`}
+      style={{
+        background: cor,
+      }}
+    >
+      <form onSubmit={send} className="flex px-6 py-4 h-[15%]">
+        <TextField
+          className="border-b-2 border-slate-900 focus:outline-none w-[90%]"
+          label="Digite uma cidade"
+          variant="standard"
+          color="error"
+          sx={{
+            "& label.Mui-focused": {
+              color: "white",
+            },
+            "& .MuiInput-underline:before": {
+              borderBottomColor: "transparent",
+            },
+            "& .MuiInput-underline:after": {
+              borderBottomColor: "white",
+            },
+            //hover
+            "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
+              borderBottomColor: "black",
+            },
+            "& .MuiFormLabel-root": {
+              color: "white",
+              fontFamily: "'Lexend Deca', sans-serif",
+              fontSize: "1rem",
+            },
+            "& .MuiInputBase-input": {
+              color: "white",
+              fontFamily: "'Lexend Deca', sans-serif",
+              fontSize: "1.25rem",
+            },
+          }}
+          autoComplete="off"
+          value={city}
+          onChange={(e) => {
+            setCity(e.target.value);
+          }}
+          InputProps={{
+            endAdornment: city != "" && (
               <IconButton
-                type="submit"
-                className="cursor-pointer mt-6"
+                aria-label="toggle password visibility"
+                onClick={() => setCity("")}
                 sx={{
                   "& .MuiSvgIcon-root": {
                     color: "white",
                   },
                 }}
               >
-                <SearchIcon />
+                <ClearIcon color="white" />
               </IconButton>
-            </div>
-          </div>
-          {/* </FaSearchLocation> */}
-        </form>
-        {resposta && !loading ? (
-          <Info info={resposta} hora={hora.toFormat("HH:mm")} />
-        ) : null}
-        {loading && (
-          <m.div
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            transition={{
-              duration: 1,
-              ease: "easeInOut",
-            }}
-            className="flex justify-center items-center h-full"
-          >
-            <CircularProgress
+            ),
+          }}
+        />
+        {/* <FaSearchLocation size={30} className="cursor-pointer"> */}
+        <div className="w-[10%] flex justify-center">
+          <div className="mt-3">
+            <IconButton
+              type="submit"
+              className="cursor-pointer mt-6"
               sx={{
-                color: "white",
+                "& .MuiSvgIcon-root": {
+                  color: "white",
+                },
               }}
-            />
-          </m.div>
-        )}
-      </m.div>
+            >
+              <SearchIcon />
+            </IconButton>
+          </div>
+        </div>
+        {/* </FaSearchLocation> */}
+      </form>
+      {resposta && !loading ? (
+        <Info info={resposta} hora={hora.toFormat("HH:mm")} />
+      ) : null}
+      {loading && (
+        <m.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          transition={{
+            duration: 0.7,
+            ease: "easeInOut",
+          }}
+          className="flex justify-center items-center h-full"
+        >
+          <CircularProgress
+            sx={{
+              color: "white",
+            }}
+          />
+        </m.div>
+      )}
+    </m.div>
   );
 }
 

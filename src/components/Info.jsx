@@ -59,17 +59,36 @@ function Info(props) {
           >
             <AccessTimeOutlinedIcon fontSize="small" />
           </m.div>
-          <p className="text-md">{hora}</p>
+          <m.p
+            initial={{ x: 20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.4, ease: "easeOut", duration: 0.7 }}
+            className="text-md"
+          >
+            {hora}
+          </m.p>
         </div>
-        <p className="text-xl text-neutral-900">{props.info.weather[0].main}</p>
+        <m.p
+          initial={{ x: 20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ delay: 0.4, ease: "easeOut", duration: 0.7 }}
+          className="text-xl text-neutral-900"
+        >
+          {props.info.weather[0].main}
+        </m.p>
       </div>
 
-      <div className="px-6 flex justify-center w-2/5">
+      <m.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.4, ease: "easeOut", duration: 0.7 }}
+        className="px-6 flex justify-center w-2/5"
+      >
         <img
           src={`icons/newIcons/${props.info.weather[0].icon}.png`}
           alt="icon"
         />
-      </div>
+      </m.div>
     </div>
   );
 }

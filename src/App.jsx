@@ -65,7 +65,7 @@ function App() {
 
   const mudaCor = (hora) => {
     if (hora >= 6 && hora < 12) {
-      setCor("#D0863866");
+      setCor("#ad661a66");
     } else if (hora >= 12 && hora < 18) {
       setCor("#308CB690");
     } else if (hora >= 18 && hora < 24) {
@@ -80,7 +80,7 @@ function App() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className={`absolute h-full transition-colors duration-500 backdrop-blur-sm z-10`}
+      className={`absolute h-full w-full transition-colors duration-500 backdrop-blur-sm z-10`}
       style={{
         background: cor,
       }}

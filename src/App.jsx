@@ -42,6 +42,7 @@ function App() {
       .then((res) => res.data)
       .then((data) => {
         setTimeout(() => {
+          console.log(data);
           setLoading(false);
           setResposta(data);
           pegaHora(data.timezone);

@@ -9,7 +9,7 @@ import { DateTime } from "luxon";
 import { motion as m } from "framer-motion";
 
 function App() {
-  const API_key = "f93aacfc4f417b961ee630e9fea7b9ca";
+  const API_key = import.meta.env.VITE_API_KEY;
   const [city, setCity] = useState("");
   const [resposta, setResposta] = useState();
   const [loading, setLoading] = useState(false);

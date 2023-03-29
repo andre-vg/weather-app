@@ -16,6 +16,7 @@ function App() {
           height: 50,
         }}
         component={m.div}
+        initial="closed"
         animate={button ? "open" : "closed"}
         variants={{
           open: {
@@ -47,6 +48,7 @@ function App() {
         className={
           "bg-white w-72 h-72 rounded-lg shadow-md absolute Poppins right-0 px-6 "
         }
+        initial="closed"
         animate={button ? "open" : "closed"}
         variants={{
           open: {
@@ -75,6 +77,7 @@ function App() {
       >
         <m.div
           className="absolute -top-4 -right-4 bg-white rounded-full shadow-sm hover:shadow-md transition-all duration-300"
+          initial="closed"
           animate={button ? "open" : "closed"}
           variants={{
             open: {
@@ -105,6 +108,7 @@ function App() {
         </m.div>
 
         <m.div
+        initial="closed"
           animate={button ? "open" : "closed"}
           variants={{
             open: {
@@ -130,6 +134,7 @@ function App() {
         </m.div>
 
         <m.div
+          initial="closed"
           animate={button ? "open" : "closed"}
           variants={{
             open: {

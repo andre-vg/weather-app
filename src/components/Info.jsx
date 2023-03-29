@@ -82,7 +82,7 @@ function Info(props) {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.4, ease: "easeOut", duration: 0.7 }}
-        className="px-6 flex justify-center w-2/5"
+        className="px-6 flex justify-center w-2/5 max-h-[33%]"
       >
         <img
           src={`icons/newIcons/${props.info.weather[0].icon}.png`}

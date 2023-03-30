@@ -2,13 +2,16 @@ import { Avatar, Popover } from "@mui/material";
 import React from "react";
 import { motion as m } from "framer-motion";
 import { Add } from "@mui/icons-material";
+import useOnClickOutside from "./FocusOut";
 
 function App() {
   const [button, setButton] = React.useState(false);
+  const ref = React.useRef();
+  useOnClickOutside(ref, () => setButton(false));
   return (
-    <div className="flex justify-end w-full h-20 shadow-md px-5 transition-all bg-white">
+    <div ref={ref} className="flex justify-end w-full h-20 shadow-md px-5 transition-all bg-white">
       <Avatar
-        className="z-10 absolute right-10 top-[14px]"
+        className="z-20 absolute right-10 top-[14px] cursor-pointer"
         src="https://avatars.githubusercontent.com/u/16899513?v=4"
         alt="André Gonçalves"
         sx={{
@@ -46,7 +49,7 @@ function App() {
       />
       <m.div
         className={
-          "bg-white w-72 h-72 rounded-lg shadow-md absolute Poppins right-0 px-6 "
+          "bg-white w-72 h-72 rounded-lg shadow-md absolute Poppins right-0 px-6 z-10"
         }
         initial="closed"
         animate={button ? "open" : "closed"}
